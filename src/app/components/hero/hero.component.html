@@ -1,0 +1,37 @@
+<p>hero works!</p>
+<div class="container">
+
+  <hr>
+
+  <form [formGroup]="form" (ngSubmit)="guardarHeroe()">
+    <div class="input-group input-group-lg mb-3">
+      <input type="text" class="form-control" formControlName="name" placeholder="Name">
+    </div>
+
+    <button type="submit" class="btn btn-success btn-lg">Guardar</button>
+  </form>
+
+  <hr>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hero of listHero">
+          <td>{{ hero.id }}</td>
+          <td>{{ hero.name }}</td>
+          <td>
+            <i (click)="editarHeroe(hero)" class="far fa-edit text-info"></i>
+          </td>
+          <td>
+            <i (click)="eliminarHero(hero)" class="far fa-trash-alt text-danger"></i>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
